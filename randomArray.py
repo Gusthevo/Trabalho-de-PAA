@@ -2,7 +2,7 @@ import random
 import os
 
 # Função para gerar o tamanho do array e depois estamos declarando um array vazio
-arraySize = 9999
+arraySize = 1000000
 arrayNotRepeated = []
 
 arraysNotSorted = "arraysNotSorted"
@@ -11,8 +11,8 @@ if not os.path.exists(arraysNotSorted):
     os.makedirs(arraysNotSorted)
 
 #Gera o array aleatório que não se repete
-arrayNotRepeated = random.sample(range(100000000), arraySize)
-#print (arrayNotRepeated)
+arrayNotRepeated = random.sample(range(10000000), arraySize)
+print (arrayNotRepeated)
 """
 
 
@@ -28,7 +28,7 @@ if os.path.exists(arraysNotSorted):
     try:
         with open(saveArray, 'w') as k:
             k.write(str(arrayNotRepeated))
-            #print(f"Lista salva em: {arraysNotSorted}")
+            print(f"Lista salva em: {arraysNotSorted}")
         with open(saveArray, 'r') as k:
             content = k.read()
             #print(content)

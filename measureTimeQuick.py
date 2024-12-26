@@ -1,5 +1,5 @@
 import time
-from quickSort import quick_sort, arrayOrdenado
+from quickSort import quickSort  # Importa a função quick_sort
 import seaborn as sns
 import matplotlib.pyplot as plt
 
@@ -20,32 +20,32 @@ if not lista:
     print("Erro: Não tem uma lista ou não foi carregado, meu rei. Encerrando...")
 else:
     # Quantidade de execuções
-    num_execucoes = 100
+    num_execucoes = 10
 
     # Lista para armazenar os tempos de execução
     tempos_quick_sort = []
 
-    # Executar o Bubble Sort várias vezes
+    # Executar o Quick Sort várias vezes
     for i in range(num_execucoes):
         lista_copia = lista.copy()  # Cria uma cópia da lista original para cada execução
-        startTime = time.time()  # Início da medição do tempo
-        quick_sort(lista_copia)  # Executar o Quick Sort
-        endTime = time.time()  # Fim da medição do tempo
+        startTime = time.perf_counter()  # Início da medição do tempo
+        quickSort(lista_copia, 0, len(lista_copia) - 1)  # Passa os índices low e high
+        endTime = time.perf_counter()  # Fim da medição do tempo
 
         # Armazenar o tempo de execução em milissegundos
         tempo_execucao = (endTime - startTime) * 1000
         tempos_quick_sort.append(tempo_execucao)
 
-
     # Exibir a lista ordenada da última execução
-    print("\nLista ordenada da última execução:", arrayOrdenado)
+    print("\nLista ordenada da última execução:", lista_copia)
     
     # Calcular o tempo médio
     tempo_medio_quick_sort = sum(tempos_quick_sort) / num_execucoes
     print(f"\nTempo médio do Quick Sort: {tempo_medio_quick_sort:.4f} ms")
     
     # Exibir o tempo em um gráfico usando Seaborn
-    sns.lineplot(x=[f"{i+1}" for i in range(num_execucoes)], y=tempo_medio_quick_sort, color = "pink", markers= True)
+    sns.set_theme(style="whitegrid")
+    sns.lineplot(x=[f"{i+1}" for i in range(num_execucoes)], y=tempos_quick_sort, color="pink")
     plt.xlabel('Execuções')
     plt.ylabel('Tempo de Execução (ms)')
     plt.title(f'Tempos de execução do Quick Sort (em {num_execucoes} execuções)')

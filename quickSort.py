@@ -1,14 +1,22 @@
 from randomArray import saveArray
 
-def quick_sort(lista):
-    if len(lista) <= 1:  # Caso base: listas de 0 ou 1 elemento já estão ordenadas
-        return lista
-    else:
-        pivo = lista[-1]  # Pivô escolhido como o elemento do meio
-        menor = [x for x in lista if x < pivo]  # Elementos menores que o pivô
-        igual = [x for x in lista if x == pivo]  # Elementos iguais ao pivô
-        maior = [x for x in lista if x > pivo]  # Elementos maiores que o pivô
-        return quick_sort(menor) + igual + quick_sort(maior)
+def partition(array, start, end):
+    middle = (start + end) // 2  # Pivô escolhido como o elemento do meio
+    pivo = array[middle]
+    array[middle], array[end] = array[end], array[middle]  # Move o pivô para o final para facilitar a partição
+    smaller_index = start - 1  # Índice do menor elemento
+    for current_index in range(start, end):
+        if array[current_index] <= pivo:
+            smaller_index += 1
+            array[smaller_index], array[current_index] = array[current_index], array[smaller_index]  # Troca elementos menores ou iguais ao pivô
+    array[smaller_index + 1], array[end] = array[end], array[smaller_index + 1]  # Coloca o pivô na posição correta
+    return smaller_index + 1
+
+def quickSort(array, start, end):
+    if start < end:
+        partition_index = partition(array, start, end)  # Índice de partição
+        quickSort(array, start, partition_index - 1)  # Recursivamente ordena os elementos antes da partição
+        quickSort(array, partition_index + 1, end)  # Recursivamente ordena os elementos depois da partição
 
 
 # Ler e resgatar o array do arquivo
@@ -23,5 +31,8 @@ except IOError as e:
     arrayFromFile = []
 
 # Aplicando o Quick Sort
-arrayOrdenado = quick_sort(arrayFromFile)
-print("\nArray ordenado usando Quick Sort:", arrayOrdenado)
+if arrayFromFile:
+    quickSort(arrayFromFile, 0, len(arrayFromFile) - 1)
+    print("\nArray ordenado usando Quick Sort:", arrayFromFile)
+else:
+    print("Erro: Não tem uma lista ou não foi carregado, meu rei. Encerrando...")

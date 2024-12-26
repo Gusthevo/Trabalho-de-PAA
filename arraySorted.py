@@ -1,7 +1,7 @@
 import os
 
 # Função para gerar o tamanho do array e depois estamos declarando um array vazio
-arraySize = 99999
+arraySize = 999999
 arraySorted = list(range(arraySize))  # Gera um array ordenado de 0 a arraySize-1
 
 arraysSorted = "arraysSorted"

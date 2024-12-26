@@ -25,17 +25,17 @@ else:
     # Lista para armazenar os tempos de execução
     tempos_insertion_sort = []
 
-    # Executar o Bubble Sort várias vezes
+    # Executar o Insertion Sort várias vezes
     for i in range(num_execucoes):
         lista_copia = lista.copy()  # Cria uma cópia da lista original para cada execução
-        startTime = time.time()  # Início da medição do tempo
-        insertionSort(lista_copia)  # Executar o Bubble Sort
-        endTime = time.time()  # Fim da medição do tempo
+        startTime = time.perf_counter()  # Início da medição do tempo
+        insertionSort(lista_copia)  # Executar o Insertion Sort
+        endTime = time.perf_counter()  # Fim da medição do tempo
 
         # Armazenar o tempo de execução em milissegundos
         tempo_execucao = (endTime - startTime) * 1000
         tempos_insertion_sort.append(tempo_execucao)
-        print("\nLista ordenada :", lista_copia)
+        #print("\nLista ordenada :", lista_copia)
 
 
     # Exibir a lista ordenada da última execução
@@ -46,7 +46,8 @@ else:
     print(f"\nTempo médio do Insertion Sort: {tempo_medio_insertion_sort:.4f} ms")
     
     # Exibir o tempo em um gráfico usando Seaborn
-    sns.lineplot(x=[f"{i+1}" for i in range(num_execucoes)], y=tempos_insertion_sort, color = "red", markers= True)
+    sns.set_theme(style="whitegrid")
+    sns.lineplot(x=[f"{i+1}" for i in range(num_execucoes)], y=tempos_insertion_sort, color="red")
     plt.xlabel('Execuções')
     plt.ylabel('Tempo de Execução (ms)')
     plt.title(f'Tempos de execução do Insertion Sort (em {num_execucoes} execuções)')
