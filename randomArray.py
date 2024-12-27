@@ -2,7 +2,7 @@ import random
 import os
 
 # Função para gerar o tamanho do array e depois estamos declarando um array vazio
-arraySize = 1000000
+arraySize = 100000
 arrayNotRepeated = []
 
 arraysNotSorted = "arraysNotSorted"
@@ -11,16 +11,9 @@ if not os.path.exists(arraysNotSorted):
     os.makedirs(arraysNotSorted)
 
 #Gera o array aleatório que não se repete
-arrayNotRepeated = random.sample(range(10000000), arraySize)
-print (arrayNotRepeated)
-"""
+arrayNotRepeated = random.sample(range(100000), arraySize)
+#print (arrayNotRepeated)
 
-
-#aqui seria um array que se repete
-for i in range(arraySize):
-    arrayExitCanBeRepeated.append(random.randint(0, 10))
-print (arrayExitCanBeRepeated)
-"""
 #Sempre que for chamado, vai alterar a lista não ordenada para outra nova, já que chama saveArray, e write uma nova lista gerada
 saveArray = os.path.join(arraysNotSorted, "array.txt")
 # Verifica se a pasta existe e tentar salvar o arquivo

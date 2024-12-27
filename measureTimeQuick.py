@@ -1,5 +1,5 @@
 import time
-from quickSort import quickSort  # Importa a função quick_sort
+from quickSort import quickSort  # Importa função corretamente
 import seaborn as sns
 import matplotlib.pyplot as plt
 
@@ -28,9 +28,11 @@ else:
     # Executar o Quick Sort várias vezes
     for i in range(num_execucoes):
         lista_copia = lista.copy()  # Cria uma cópia da lista original para cada execução
+        print("Iniciando medição")
         startTime = time.perf_counter()  # Início da medição do tempo
-        quickSort(lista_copia, 0, len(lista_copia) - 1)  # Passa os índices low e high
+        quickSort(lista_copia, 0, len(lista_copia) - 1)  # Passa os índices limites para medição
         endTime = time.perf_counter()  # Fim da medição do tempo
+        print("Acabou a medição")
 
         # Armazenar o tempo de execução em milissegundos
         tempo_execucao = (endTime - startTime) * 1000

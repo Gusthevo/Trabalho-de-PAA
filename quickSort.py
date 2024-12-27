@@ -14,7 +14,7 @@ def partition(array, start, end):
 
 def quickSort(array, start, end):
     if start < end:
-        partition_index = partition(array, start, end)  # Índice de partição
+        partition_index = partition(array, start, end)  # Índice da partição
         quickSort(array, start, partition_index - 1)  # Recursivamente ordena os elementos antes da partição
         quickSort(array, partition_index + 1, end)  # Recursivamente ordena os elementos depois da partição
 

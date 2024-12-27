@@ -20,7 +20,7 @@ if not lista:
     print("Erro: Não tem uma lista ou não foi carregado, meu rei. Encerrando...")
 else:
     # Quantidade de execuções
-    num_execucoes = 100 
+    num_execucoes = 10
 
     # Lista para armazenar os tempos de execução
     tempos_merge_sort = []
@@ -28,9 +28,11 @@ else:
     # Executar o Merge Sort várias vezes
     for i in range(num_execucoes):
         lista_copia = lista.copy()  # Cria uma cópia da lista original para cada execução
+        print("Iniciando medição")
         startTime = time.perf_counter()  # Início da medição do tempo
         mergeSort(lista_copia)  # Executar o Merge Sort
         endTime = time.perf_counter()  # Fim da medição do tempo
+        print("Acabou a medição")
 
         # Armazenar o tempo de execução em milissegundos
         tempo_execucao = (endTime - startTime) * 1000
