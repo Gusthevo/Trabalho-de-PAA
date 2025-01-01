@@ -20,7 +20,7 @@ if not lista:
     print("Erro: Não tem uma lista ou não foi carregado, meu rei. Encerrando...")
 else:
     # Quantidade de execuções
-    num_execucoes = 10
+    num_execucoes = 100
 
     # Lista para armazenar os tempos de execução
     tempos_merge_sort = []

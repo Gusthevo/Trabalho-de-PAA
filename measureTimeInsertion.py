@@ -1,5 +1,6 @@
 import time
 from insertionSort import insertionSort
+#from arraySorted import insertionSort
 import seaborn as sns
 import matplotlib.pyplot as plt
 
@@ -20,7 +21,7 @@ if not lista:
     print("Erro: Não tem uma lista ou não foi carregado, meu rei.")
 else:
     # Quantidade de execuções
-    num_execucoes = 1
+    num_execucoes = 100
 
     # Lista para armazenar os tempos de execução
     tempos_insertion_sort = []
@@ -37,11 +38,10 @@ else:
         # Armazenar o tempo de execução em milissegundos
         tempo_execucao = (endTime - startTime) * 1000
         tempos_insertion_sort.append(tempo_execucao)
-        #print("\nLista ordenada :", lista_copia)
 
 
     # Exibir a lista ordenada da última execução
-    print("\nLista ordenada da última execução:", lista_copia)
+    #print("\nLista ordenada da última execução:", lista_copia)
     
     # Calcular o tempo médio
     tempo_medio_insertion_sort = sum(tempos_insertion_sort) / num_execucoes

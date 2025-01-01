@@ -21,7 +21,7 @@ if not lista:
     print("Erro: Não tem uma lista ou não foi carregado, meu rei. Encerrando...")
 else:
     # Quantidade de execuções
-    num_execucoes = 100
+    num_execucoes = 10
 
     # Lista para armazenar os tempos de execução
     tempos_bubble_sort = []
@@ -38,7 +38,6 @@ else:
         # Armazenar o tempo de execução em milissegundos
         tempo_execucao = (endTime - startTime) * 1000
         tempos_bubble_sort.append(tempo_execucao)
-       # print("\nLista ordenada :", lista_copia)
 
 
     # Exibir a lista ordenada da última execução

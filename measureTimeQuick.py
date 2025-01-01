@@ -1,5 +1,6 @@
 import time
 from quickSort import quickSort  # Importa função corretamente
+#from arraySorted import quickSort
 import seaborn as sns
 import matplotlib.pyplot as plt
 
@@ -20,7 +21,7 @@ if not lista:
     print("Erro: Não tem uma lista ou não foi carregado, meu rei. Encerrando...")
 else:
     # Quantidade de execuções
-    num_execucoes = 10
+    num_execucoes = 1
 
     # Lista para armazenar os tempos de execução
     tempos_quick_sort = []
@@ -39,7 +40,7 @@ else:
         tempos_quick_sort.append(tempo_execucao)
 
     # Exibir a lista ordenada da última execução
-    print("\nLista ordenada da última execução:", lista_copia)
+    #print("\nLista ordenada da última execução:", lista_copia)
     
     # Calcular o tempo médio
     tempo_medio_quick_sort = sum(tempos_quick_sort) / num_execucoes
