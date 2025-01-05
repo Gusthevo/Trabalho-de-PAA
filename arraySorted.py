@@ -1,7 +1,7 @@
 import os
 
 # Função para gerar o tamanho do array e depois estamos declarando um array vazio
-arraySize = 1100
+arraySize = 10000000
 arraySorted = list(range(arraySize))  # Gera um array ordenado de 0 a arraySize-1
 
 arraysSorted = "arraysSorted"
@@ -102,6 +102,49 @@ def merge(left, right):
     return array
 """
 
+def insertion_sort(arr, left, right):
+    for i in range(left + 1, right + 1):
+        key = arr[i]
+        j = i - 1
+        while j >= left and arr[j] > key:
+            arr[j + 1] = arr[j]
+            j -= 1
+        arr[j + 1] = key
+
+def merge(arr, left, mid, right):
+    n1 = mid - left + 1
+    n2 = right - mid
+    L = arr[left:mid + 1]
+    R = arr[mid + 1:right + 1]
+    i = j = 0
+    k = left
+    while i < n1 and j < n2:
+        if L[i] <= R[j]:
+            arr[k] = L[i]
+            i += 1
+        else:
+            arr[k] = R[j]
+            j += 1
+        k += 1
+    while i < n1:
+        arr[k] = L[i]
+        i += 1
+        k += 1
+    while j < n2:
+        arr[k] = R[j]
+        j += 1
+        k += 1
+
+def hybridMergeSort(arr, left, right, threshold=10):
+    if left < right:
+        if right - left + 1 < threshold:
+            insertion_sort(arr, left, right)
+        else:
+            mid = (left + right) // 2
+            hybridMergeSort(arr, left, mid, threshold)
+            hybridMergeSort(arr, mid + 1, right, threshold)
+            merge(arr, left, mid, right)
+
 # Aqui a gente abre o arquivo do array para depois aplicar algum dos algoritmos
 try:
     with open(saveArraySorted, 'r') as k:
@@ -116,7 +159,7 @@ except Exception as e:
 
 # Aplicando o Algoritmo
 if arrayFromFile:
-    #quickSort(arrayFromFile, 0, len(arrayFromFile) - 1)
-    print("\nArray ordenado usando QuickSort:", arrayFromFile)  
+    hybridMergeSort(arrayFromFile, 0, len(arrayFromFile) - 1)
+    print("\nArray ordenado usando Hybrid Sort:", arrayFromFile)  
 else:
     print("Erro: Não foi possível carregar o array. Encerrando...")
