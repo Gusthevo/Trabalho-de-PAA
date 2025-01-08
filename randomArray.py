@@ -2,7 +2,7 @@ import random
 import os
 
 # Função para gerar o tamanho do array e depois estamos declarando um array vazio
-arraySize = 10
+arraySize = 10000
 arrayNotRepeated = []
 
 arraysNotSorted = "arraysNotSorted"
@@ -24,6 +24,6 @@ if os.path.exists(arraysNotSorted):
             print(f"Lista salva em: {arraysNotSorted}")
         with open(saveArray, 'r') as k:
             content = k.read()
-           # print(content)
+            print(content)
     except IOError:
         print(f"Erro ao salvar o array na pasta, veja o que tem de errado, meu rei{IOError}")

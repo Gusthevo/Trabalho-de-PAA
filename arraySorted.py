@@ -1,7 +1,7 @@
 import os
 
 # Função para gerar o tamanho do array e depois estamos declarando um array vazio
-arraySize = 10000000
+arraySize = 10000
 arraySorted = list(range(arraySize))  # Gera um array ordenado de 0 a arraySize-1
 
 arraysSorted = "arraysSorted"
@@ -17,6 +17,8 @@ try:
         # print(f"Lista ordenada salva em: {saveArraySorted}")
 except IOError as e:
     print(f"Erro ao salvar o array: {e}")
+
+#Execução dos algoritmos de ordenação para o array ordenado
 
 """
 # Função de partição para o QuickSort
@@ -102,6 +104,7 @@ def merge(left, right):
     return array
 """
 
+"""
 def insertion_sort(arr, left, right):
     for i in range(left + 1, right + 1):
         key = arr[i]
@@ -144,6 +147,7 @@ def hybridMergeSort(arr, left, right, threshold=10):
             hybridMergeSort(arr, left, mid, threshold)
             hybridMergeSort(arr, mid + 1, right, threshold)
             merge(arr, left, mid, right)
+"""
 
 # Aqui a gente abre o arquivo do array para depois aplicar algum dos algoritmos
 try:
@@ -159,7 +163,7 @@ except Exception as e:
 
 # Aplicando o Algoritmo
 if arrayFromFile:
-    hybridMergeSort(arrayFromFile, 0, len(arrayFromFile) - 1)
+    #hybridMergeSort(arrayFromFile, 0, len(arrayFromFile) - 1) #Alterar aqui para o algoritmo desejado
     print("\nArray ordenado usando Hybrid Sort:", arrayFromFile)  
 else:
     print("Erro: Não foi possível carregar o array. Encerrando...")

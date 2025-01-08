@@ -21,7 +21,7 @@ if not lista:
     print("Erro: Não tem uma lista ou não foi carregado, meu rei.")
 else:
     # Quantidade de execuções
-    num_execucoes = 100
+    num_execucoes = 10
 
     # Lista para armazenar os tempos de execução
     tempos_insertion_sort = []
